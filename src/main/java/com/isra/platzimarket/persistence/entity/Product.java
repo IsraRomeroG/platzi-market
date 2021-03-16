@@ -1,11 +1,6 @@
 package com.isra.platzimarket.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "productos")
@@ -33,6 +28,10 @@ public class Product {
 
     @Column(name = "estado")
     private boolean state;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Category category;
 
     public Integer getIdProduct() {
         return idProduct;

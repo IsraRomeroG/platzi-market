@@ -1,6 +1,9 @@
 package com.isra.platzimarket.persistence.entity;
 
+import org.apache.catalina.LifecycleState;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -16,6 +19,9 @@ public class Category {
 
     @Column(name = "estado")
     private boolean state;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
     public Integer getIdCategory() {
         return idCategory;

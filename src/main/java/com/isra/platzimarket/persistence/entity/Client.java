@@ -1,9 +1,6 @@
 package com.isra.platzimarket.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "clientes")
@@ -27,7 +24,10 @@ public class Client {
     @Column(name = "correo_electronico")
     private String email;
 
-    public String getId() {
+    @OneToMany(mappedBy = "client")
+    private List<Sale> sales;
+
+    public String getIdClient() {
         return id;
     }
 

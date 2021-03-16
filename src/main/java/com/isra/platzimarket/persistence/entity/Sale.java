@@ -27,6 +27,10 @@ public class Sale {
     @Column(name = "estado")
     private String state;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Client client;
+
     public Integer getIdSale() {
         return idSale;
     }
