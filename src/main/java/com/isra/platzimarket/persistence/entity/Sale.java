@@ -2,6 +2,7 @@ package com.isra.platzimarket.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -28,8 +29,11 @@ public class Sale {
     private String state;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "id")
     private Client client;
+
+    @OneToMany(mappedBy = "product")
+    private List<SalesProducts> products;
 
     public Integer getIdSale() {
         return idSale;

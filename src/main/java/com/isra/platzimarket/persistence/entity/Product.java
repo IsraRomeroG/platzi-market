@@ -33,6 +33,20 @@ public class Product {
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Category category;
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "idProduct=" + idProduct +
+                ", name='" + name + '\'' +
+                ", idCategory=" + idCategory +
+                ", barCode='" + barCode + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", state=" + state +
+                ", category=" + category +
+                '}';
+    }
+
     public Integer getIdProduct() {
         return idProduct;
     }

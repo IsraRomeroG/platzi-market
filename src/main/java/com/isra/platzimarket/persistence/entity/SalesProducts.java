@@ -1,9 +1,7 @@
 package com.isra.platzimarket.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "compras_productos")
@@ -18,6 +16,15 @@ public class SalesProducts {
 
     @Column(name = "estado")
     private boolean state;
+
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Sale sale;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Product product;
 
     public SalesProductsPK getId() {
         return id;
